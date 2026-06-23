@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 import { FoodTypeBadge, QualityTierBadge } from "./FoodTypeBadge";
 import { EvidenceConfidenceBadge, ReportStatusBadge } from "./EvidenceBadges";
 import { useFavorites } from "@/hooks/useFavorites";
+function optimizedImage(url, width = 480, height = 360) {
+  if (!url) return url;
+  const encoded = encodeURIComponent(url);
+  return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
+}
 
 export default function ProductCard({ product, index = 0 }) {
   const { isFavorite, toggle } = useFavorites();
@@ -22,7 +27,7 @@ export default function ProductCard({ product, index = 0 }) {
           <div className="relative aspect-[4/3] overflow-hidden bg-muted">
             {product.image_url ? (
               <img
-  src={product.image_url}
+  src={optimizedImage(product.image_url)}
   alt={product.name}
   loading="lazy"
   decoding="async"
