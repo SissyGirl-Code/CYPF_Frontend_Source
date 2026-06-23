@@ -6,7 +6,12 @@ import { Clock, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
-
+function optimizedImage(url, width = 520, height = 347) {
+  if (!url) return url;
+  const source = url.replace(/^https?:\/\/chooseyourpetfood\.com/, "");
+  const encoded = encodeURIComponent(source);
+  return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
+}
 export default function Articles() {
   const params = new URLSearchParams(window.location.search);
   const [category, setCategory] = useState(params.get("category") || "all");
@@ -66,17 +71,19 @@ export default function Articles() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
+              transition={{ duration: 0.2 }}
             >
               <Link to={`/articles/${article.id}`} className="group block h-full">
                 <div className="bg-card rounded-lg border border-border/60 overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col">
                   {article.image_url && (
                     <div className="aspect-[3/2] overflow-hidden">
                       <img
-                        src={article.image_url}
-                        alt={article.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+  src={optimizedImage(article.image_url)}
+  alt={article.title}
+  loading="lazy"
+  decoding="async"
+  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+/>
                     </div>
                   )}
                   <div className="p-5 flex-1 flex flex-col">
