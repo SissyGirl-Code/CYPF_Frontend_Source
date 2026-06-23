@@ -72,7 +72,15 @@ export default function Navbar() {
 
           {/* Right side: user menu + mobile toggle */}
           <div className="flex items-center gap-3 md:absolute md:right-0 lg:static">
-            {isAuthenticated && (
+         {!isAuthenticated && (
+  <Link
+    to="/admin/products"
+    className="hidden sm:inline-flex items-center justify-center rounded-md border border-border px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+  >
+    Sign In
+  </Link>
+)}
+{isAuthenticated && (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-xs font-bold hover:opacity-80 transition-opacity focus:outline-none shrink-0">
