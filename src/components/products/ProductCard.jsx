@@ -22,10 +22,12 @@ export default function ProductCard({ product, index = 0 }) {
           <div className="relative aspect-[4/3] overflow-hidden bg-muted">
             {product.image_url ? (
               <img
-                src={product.image_url}
-                alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+  src={product.image_url}
+  alt={product.name}
+  loading="lazy"
+  decoding="async"
+  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
             ) : (
               <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
                 No image
