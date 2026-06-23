@@ -21,7 +21,7 @@ export default function ProductCard({ product, index = 0 }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.08, duration: 0.4 }}
+      transition={{ duration: 0.2 }}
     >
       <Link to={`/products/${product.id}`} className="group block">
         <div className="bg-card rounded-lg border border-border/60 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
