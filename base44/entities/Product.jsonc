@@ -1,0 +1,176 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand name"
+    },
+    "animal_type": {
+      "type": "string",
+      "enum": [
+        "dog",
+        "cat"
+      ],
+      "description": "Target animal"
+    },
+    "life_stage": {
+      "type": "string",
+      "enum": [
+        "puppy_kitten",
+        "adult",
+        "senior",
+        "all_stages"
+      ],
+      "description": "Life stage"
+    },
+    "health_focus": {
+      "type": "string",
+      "enum": [
+        "weight_management",
+        "joint_health",
+        "digestive",
+        "skin_coat",
+        "general_wellness",
+        "high_protein",
+        "grain_free"
+      ],
+      "description": "Primary health benefit"
+    },
+    "food_type": {
+      "type": "string",
+      "enum": [
+        "kibble",
+        "canned",
+        "frozen",
+        "gently_cooked",
+        "raw"
+      ],
+      "description": "Food format/type"
+    },
+    "quality_tier": {
+      "type": "string",
+      "enum": [
+        "good",
+        "better",
+        "best"
+      ],
+      "description": "Quality tier rating"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product description"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Product image URL"
+    },
+    "protein_pct": {
+      "type": "number",
+      "description": "Protein percentage"
+    },
+    "fat_pct": {
+      "type": "number",
+      "description": "Fat percentage"
+    },
+    "fiber_pct": {
+      "type": "number",
+      "description": "Fiber percentage"
+    },
+    "calories_per_cup": {
+      "type": "number",
+      "description": "Calories per cup"
+    },
+    "is_grain_free": {
+      "type": "boolean",
+      "description": "Grain free"
+    },
+    "has_artificial_preservatives": {
+      "type": "boolean",
+      "description": "Contains artificial preservatives"
+    },
+    "is_single_protein": {
+      "type": "boolean",
+      "description": "Contains only the protein(s) listed on the package \u2014 no hidden secondary meats or main ingredients"
+    },
+    "top_ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "benefit": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Top 5 ingredients with benefits"
+    },
+    "allergens": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Common allergens present in the product (e.g. chicken, wheat, soy, dairy, eggs, fish, corn, beef, lamb)"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Rating out of 5"
+    },
+    "price_range": {
+      "type": "string",
+      "description": "Price range display text"
+    },
+    "affiliate_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "retailer": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Affiliate links to retailers"
+    },
+    "featured": {
+      "type": "boolean",
+      "description": "Featured on homepage"
+    }
+  },
+  "required": [
+    "name",
+    "brand",
+    "animal_type"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
