@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Dental Health Guide article image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8F4EA"/><stop offset="1" stop-color="#E3ECDD"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#282D26" flood-opacity="0.18"/></filter>
+    <style>.label{font-family:Arial,sans-serif;font-weight:700;letter-spacing:3px;fill:#B86A2A}.title{font-family:Georgia,serif;font-weight:700;fill:#282D26}.sub{font-family:Arial,sans-serif;fill:#50564C}.brand{font-family:Arial,sans-serif;fill:#6E7A4A}</style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1230" cy="210" r="235" fill="#5F7F68" opacity=".15"/><circle cx="1440" cy="640" r="235" fill="#C98A3D" opacity=".12"/><circle cx="1035" cy="630" r="225" fill="#B86A2A" opacity=".08"/>
+  <rect x="90" y="90" width="760" height="535" rx="38" fill="#fff" opacity=".93" filter="url(#shadow)"/>
+  <text x="132" y="158" class="label" font-size="28">HEALTH</text>
+  <text x="132" y="238" class="title" font-size="58">Dental Health</text><text x="132" y="306" class="title" font-size="58">Guide</text>
+  <text x="132" y="386" class="sub" font-size="31">The silent disease affecting</text><text x="132" y="428" class="sub" font-size="31">most pets.</text>
+  <line x1="132" y1="545" x2="800" y2="545" stroke="#C98A3D" stroke-width="5"/><text x="132" y="585" class="brand" font-size="24">chooseyourpetfood.com</text>
+  <g transform="translate(1085 220)">
+    <path d="M150 0 C235 0 300 58 300 145 C300 220 256 300 232 376 C213 438 179 507 150 548 C121 507 87 438 68 376 C44 300 0 220 0 145 C0 58 65 0 150 0Z" fill="#fff" opacity=".9" stroke="#6E7A4A" stroke-width="10"/>
+    <path d="M150 90 C195 90 230 122 230 170 C230 208 210 245 196 285 C184 320 168 358 150 384 C132 358 116 320 104 285 C90 245 70 208 70 170 C70 122 105 90 150 90Z" fill="none" stroke="#C98A3D" stroke-width="10"/>
+    <path d="M150 120 C168 145 162 170 150 185 C138 170 132 145 150 120Z" fill="#B86A2A" opacity=".8"/>
+  </g>
+  <g stroke="#5F7F68" stroke-width="8" stroke-linecap="round" opacity=".7">
+    <line x1="1010" y1="725" x2="1160" y2="725"/><line x1="1250" y1="725" x2="1400" y2="725"/>
+  </g>
+  <g fill="#B86A2A" opacity=".85"><circle cx="1188" cy="725" r="24"/><circle cx="1220" cy="725" r="24"/></g>
+</svg>
