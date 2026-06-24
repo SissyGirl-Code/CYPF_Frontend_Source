@@ -7,6 +7,7 @@ import { EvidenceConfidenceBadge, ReportStatusBadge } from "./EvidenceBadges";
 import { useFavorites } from "@/hooks/useFavorites";
 function optimizedImage(url, width = 480, height = 360) {
   if (!url) return url;
+  if (/\.svg(?:\?|#|$)/i.test(url) || url.startsWith("data:")) return url;
   const source = url.replace(/^https?:\/\/chooseyourpetfood\.com/, "");
   const encoded = encodeURIComponent(source);
   return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
