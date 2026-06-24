@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between md:justify-center lg:justify-between h-20 relative">
           <Link to="/" className="flex items-center gap-3 select-none">
             <img
-              src="https://media.base44.com/images/public/69fcdd6b91dd8bf71099f815/9f311d85c_chooseyourpetfood_LOGO_8h_light_outline_Cropped.png"
+              src="/brand/cypf-logo-header.png"
               alt="chooseyourpetfood logo"
               className="flex-shrink-0 h-[44px] md:h-[76px] w-auto"
               style={{mixBlendMode: 'multiply', background: 'transparent'}}
