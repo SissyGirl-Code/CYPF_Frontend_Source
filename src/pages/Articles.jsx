@@ -8,6 +8,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 function optimizedImage(url, width = 520, height = 347) {
   if (!url) return url;
+  if (/\.svg(?:\?|#|$)/i.test(url) || url.startsWith("data:")) return url;
   const source = url.replace(/^https?:\/\/chooseyourpetfood\.com/, "");
   const encoded = encodeURIComponent(source);
   return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
