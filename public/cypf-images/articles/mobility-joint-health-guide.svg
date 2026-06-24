@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Mobility and Joint Health Guide article image">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8F4EA"/><stop offset="1" stop-color="#E2EBDD"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#282D26" flood-opacity="0.18"/></filter><style>.label{font-family:Arial,sans-serif;font-weight:700;letter-spacing:3px;fill:#B86A2A}.title{font-family:Georgia,serif;font-weight:700;fill:#282D26}.sub{font-family:Arial,sans-serif;fill:#50564C}.brand{font-family:Arial,sans-serif;fill:#6E7A4A}</style></defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><circle cx="1210" cy="225" r="235" fill="#5F7F68" opacity=".15"/><circle cx="1435" cy="630" r="245" fill="#C98A3D" opacity=".13"/><circle cx="1050" cy="650" r="220" fill="#B86A2A" opacity=".08"/>
+  <rect x="90" y="90" width="750" height="535" rx="38" fill="#fff" opacity=".93" filter="url(#shadow)"/>
+  <text x="132" y="158" class="label" font-size="28">HEALTH</text>
+  <text x="132" y="238" class="title" font-size="58">Mobility &amp; Joint</text><text x="132" y="306" class="title" font-size="58">Health Guide</text>
+  <text x="132" y="386" class="sub" font-size="31">Protecting movement before</text><text x="132" y="428" class="sub" font-size="31">pain takes over.</text>
+  <line x1="132" y1="545" x2="790" y2="545" stroke="#C98A3D" stroke-width="5"/><text x="132" y="585" class="brand" font-size="24">chooseyourpetfood.com</text>
+  <path d="M930 530 C1035 305 1320 280 1460 445" fill="none" stroke="#6E7A4A" stroke-width="20" stroke-linecap="round"/><polygon points="1460,445 1498,506 1427,493" fill="#6E7A4A"/>
+  <line x1="1035" y1="365" x2="1235" y2="505" stroke="#C98A3D" stroke-width="44" stroke-linecap="round"/><line x1="1280" y1="510" x2="1440" y2="665" stroke="#C98A3D" stroke-width="44" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#C98A3D" stroke-width="11"><circle cx="1028" cy="360" r="58"/><circle cx="1238" cy="508" r="58"/><circle cx="1280" cy="510" r="58"/><circle cx="1440" cy="665" r="58"/></g>
+  <path d="M1035 618 C1120 575 1220 585 1290 640 C1360 695 1435 692 1500 642" fill="none" stroke="#5F7F68" stroke-width="13" stroke-linecap="round" opacity=".55"/>
+  <rect x="965" y="705" width="535" height="70" rx="35" fill="#fff" opacity=".82"/><text x="1018" y="750" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#282D26">movement • comfort • strength</text>
+</svg>

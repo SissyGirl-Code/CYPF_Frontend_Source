@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Cognitive Health and Aging article image">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8F4EA"/><stop offset="1" stop-color="#E4ECDD"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#282D26" flood-opacity="0.18"/></filter><style>.label{font-family:Arial,sans-serif;font-weight:700;letter-spacing:3px;fill:#B86A2A}.title{font-family:Georgia,serif;font-weight:700;fill:#282D26}.sub{font-family:Arial,sans-serif;fill:#50564C}.brand{font-family:Arial,sans-serif;fill:#6E7A4A}</style></defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><circle cx="1210" cy="220" r="245" fill="#5F7F68" opacity=".14"/><circle cx="1420" cy="635" r="230" fill="#C98A3D" opacity=".13"/><circle cx="1030" cy="610" r="210" fill="#B86A2A" opacity=".09"/>
+  <rect x="90" y="90" width="750" height="535" rx="38" fill="#fff" opacity=".93" filter="url(#shadow)"/>
+  <text x="132" y="158" class="label" font-size="28">HEALTH</text>
+  <text x="132" y="240" class="title" font-size="58">Cognitive Health</text><text x="132" y="310" class="title" font-size="58">&amp; Aging</text>
+  <text x="132" y="390" class="sub" font-size="31">Understanding canine and feline</text><text x="132" y="432" class="sub" font-size="31">cognitive decline.</text>
+  <line x1="132" y1="545" x2="790" y2="545" stroke="#C98A3D" stroke-width="5"/><text x="132" y="585" class="brand" font-size="24">chooseyourpetfood.com</text>
+  <ellipse cx="1210" cy="405" rx="230" ry="210" fill="#fff" opacity=".86" stroke="#6E7A4A" stroke-width="9"/>
+  <path d="M1055 392 C1090 255 1230 258 1250 350 C1340 310 1400 390 1350 475 C1375 565 1240 600 1195 525 C1108 585 1015 500 1055 392Z" fill="none" stroke="#C98A3D" stroke-width="11" stroke-linecap="round"/>
+  <g stroke="#B86A2A" stroke-width="6" opacity=".75"><line x1="1110" y1="330" x2="1245" y2="315"/><line x1="1245" y1="315" x2="1320" y2="430"/><line x1="1320" y1="430" x2="1190" y2="492"/><line x1="1190" y1="492" x2="1090" y2="470"/><line x1="1090" y1="470" x2="1110" y2="330"/><line x1="1190" y1="492" x2="1265" y2="565"/></g>
+  <g stroke="#fff" stroke-width="4"><circle cx="1110" cy="330" r="22" fill="#B86A2A"/><circle cx="1245" cy="315" r="22" fill="#C98A3D"/><circle cx="1320" cy="430" r="22" fill="#5F7F68"/><circle cx="1190" cy="492" r="22" fill="#6E7A4A"/><circle cx="1090" cy="470" r="22" fill="#B86A2A"/><circle cx="1265" cy="565" r="22" fill="#C98A3D"/></g>
+  <rect x="980" y="670" width="480" height="70" rx="35" fill="#fff" opacity=".80"/><text x="1035" y="715" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#282D26">memory • awareness • aging</text>
+</svg>

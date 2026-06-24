@@ -1,7 +1,18 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+
+function optimizedImage(url, width = 520, height = 347) {
+  if (!url) return url;
+  if (/\.svg(?:\?|#|$)/i.test(url) || url.startsWith("data:")) return url;
+  const source = url.replace(/^https?:\/\/chooseyourpetfood\.com/, "");
+  const encoded = encodeURIComponent(source);
+  return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
+}
 
 const methodologySteps = [
   {
@@ -85,6 +96,11 @@ const transitionSteps = [
 ];
 
 export default function Methodology() {
+  const { data: methodologyArticles = [], isLoading: isLoadingMethodologyArticles } = useQuery({
+    queryKey: ["methodology-articles"],
+    queryFn: () => base44.entities.Article.filter({ published: true, category: "methodology" }, "-created_date", 20),
+  });
+
   return (
     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       {/* Header */}
@@ -95,6 +111,76 @@ export default function Methodology() {
           A structured, science-backed process for evaluating every product in our database — ingredient by ingredient.
         </p>
       </motion.div>
+
+      {/* CYPF Methodology Library */}
+      {(isLoadingMethodologyArticles || methodologyArticles.length > 0) && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-24"
+        >
+          <div className="mb-8">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-2">CYPF Methodology Library</p>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">How CYPF Evaluates Pet Food</h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl">
+              These are framework pieces about our rating process, evidence standards, and how we judge science-based pet food claims.
+            </p>
+          </div>
+
+          {isLoadingMethodologyArticles ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[1, 2].map((i) => <div key={i} className="h-80 bg-muted rounded-lg animate-pulse" />)}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {methodologyArticles.map((article, idx) => (
+                <motion.div
+                  key={article.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                >
+                  <Link to={`/articles/${article.id}`} className="group block h-full">
+                    <div className="bg-card rounded-lg border border-border/60 overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col">
+                      {article.image_url && (
+                        <div className="aspect-[3/2] overflow-hidden">
+                          <img
+                            src={optimizedImage(article.image_url)}
+                            alt={article.title}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      )}
+                      <div className="p-5 flex-1 flex flex-col">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Badge variant="secondary" className="text-xs capitalize">Methodology</Badge>
+                          {article.read_time && (
+                            <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                              <Clock className="w-3 h-3" /> {article.read_time} min
+                            </span>
+                          )}
+                        </div>
+                        <h3 className="font-heading text-lg font-semibold group-hover:text-primary transition-colors leading-tight mb-2">
+                          {article.title}
+                        </h3>
+                        {article.excerpt && (
+                          <p className="text-sm text-muted-foreground line-clamp-3 flex-1">{article.excerpt}</p>
+                        )}
+                        <div className="flex items-center gap-1 text-sm text-primary font-medium mt-4">
+                          Read methodology <ArrowRight className="w-3.5 h-3.5" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </motion.div>
+      )}
 
       {/* Analysis Methodology Steps */}
       <motion.div

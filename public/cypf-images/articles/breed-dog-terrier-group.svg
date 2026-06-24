@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Terrier Group breed guide article image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8F4EA"/><stop offset="1" stop-color="#E3ECDD"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#282D26" flood-opacity="0.18"/></filter>
+    <style>.label{font-family:Arial,sans-serif;font-weight:700;letter-spacing:3px;fill:#B86A2A}.title{font-family:Georgia,serif;font-weight:700;fill:#282D26}.sub{font-family:Arial,sans-serif;fill:#50564C}.brand{font-family:Arial,sans-serif;fill:#6E7A4A}</style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1245" cy="220" r="245" fill="#5F7F68" opacity=".14"/><circle cx="1450" cy="620" r="240" fill="#C98A3D" opacity=".12"/><circle cx="1030" cy="640" r="220" fill="#B86A2A" opacity=".08"/>
+  <rect x="90" y="90" width="760" height="535" rx="38" fill="#fff" opacity=".93" filter="url(#shadow)"/>
+  <text x="132" y="158" class="label" font-size="28">BREEDS</text>
+  <text x="132" y="225" class="title" font-size="52">Dog Breed Guide:</text><text x="132" y="288" class="title" font-size="52">Terrier Group</text>
+  <text x="132" y="370" class="sub" font-size="31">Jack Russell, Bull Terrier,</text><text x="132" y="412" class="sub" font-size="31">Cairn &amp; more.</text>
+  <line x1="132" y1="545" x2="800" y2="545" stroke="#C98A3D" stroke-width="5"/><text x="132" y="585" class="brand" font-size="24">chooseyourpetfood.com</text>
+  <g transform="translate(930 190)">
+    <path d="M130 395 L165 240 L270 170 L435 195 L520 115 L570 170 L540 220 L590 270 L540 315 L495 315 L465 395 Z" fill="#ffffff" opacity=".92" stroke="#6E7A4A" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M440 205 L510 130 L548 170 L520 205 Z" fill="#C98A3D" opacity=".8"/>
+    <circle cx="455" cy="215" r="10" fill="#282D26"/>
+    <circle cx="410" cy="255" r="13" fill="#B86A2A" opacity=".85"/>
+    <line x1="160" y1="395" x2="150" y2="500" stroke="#6E7A4A" stroke-width="12" stroke-linecap="round"/>
+    <line x1="255" y1="395" x2="245" y2="505" stroke="#6E7A4A" stroke-width="12" stroke-linecap="round"/>
+    <line x1="435" y1="395" x2="425" y2="505" stroke="#6E7A4A" stroke-width="12" stroke-linecap="round"/>
+    <line x1="500" y1="395" x2="510" y2="500" stroke="#6E7A4A" stroke-width="12" stroke-linecap="round"/>
+    <path d="M120 390 C70 390 45 425 35 470" fill="none" stroke="#B86A2A" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <rect x="990" y="700" width="470" height="70" rx="35" fill="#fff" opacity=".82"/>
+  <text x="1048" y="745" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#282D26">spirited • tenacious • alert</text>
+</svg>

@@ -8,6 +8,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 function optimizedImage(url, width = 520, height = 347) {
   if (!url) return url;
+  if (/\.svg(?:\?|#|$)/i.test(url) || url.startsWith("data:")) return url;
   const source = url.replace(/^https?:\/\/chooseyourpetfood\.com/, "");
   const encoded = encodeURIComponent(source);
   return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
@@ -22,9 +23,11 @@ export default function Articles() {
   });
 
   const CATEGORY_ORDER = { nutrition: 0, health: 1, ingredients: 2, breeds: 3, guides: 4 };
+  const HIDDEN_ARTICLE_CATEGORIES = new Set(["methodology"]);
 
   const filtered = useMemo(() => {
-    const list = category === "all" ? articles : articles.filter((a) => a.category === category);
+    const visibleArticles = articles.filter((a) => !HIDDEN_ARTICLE_CATEGORIES.has(a.category));
+    const list = category === "all" ? visibleArticles : visibleArticles.filter((a) => a.category === category);
     if (category !== "all") return list;
     return [...list].sort((a, b) => {
       const orderA = CATEGORY_ORDER[a.category] ?? 99;
