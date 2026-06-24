@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Gut Health and Immune Function article image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8F4EA"/><stop offset="1" stop-color="#E3EBDD"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#282D26" flood-opacity="0.18"/></filter>
+    <style>.label{font-family:Arial,sans-serif;font-weight:700;letter-spacing:3px;fill:#B86A2A}.title{font-family:Georgia,serif;font-weight:700;fill:#282D26}.sub{font-family:Arial,sans-serif;fill:#50564C}.brand{font-family:Arial,sans-serif;fill:#6E7A4A}</style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1260" cy="190" r="220" fill="#5F7F68" opacity=".15"/><circle cx="1130" cy="610" r="290" fill="#C98A3D" opacity=".13"/><circle cx="1490" cy="640" r="190" fill="#B86A2A" opacity=".10"/>
+  <rect x="90" y="90" width="750" height="535" rx="38" fill="#fff" opacity=".93" filter="url(#shadow)"/>
+  <text x="132" y="158" class="label" font-size="28">HEALTH</text>
+  <text x="132" y="250" class="title" font-size="62">Gut Health &amp;</text><text x="132" y="322" class="title" font-size="62">Immune Function</text>
+  <text x="132" y="405" class="sub" font-size="31">What we know, what we suspect,</text><text x="132" y="447" class="sub" font-size="31">and what remains unproven.</text>
+  <line x1="132" y1="545" x2="790" y2="545" stroke="#C98A3D" stroke-width="5"/><text x="132" y="585" class="brand" font-size="24">chooseyourpetfood.com</text>
+  <path d="M1050 185 C1385 210 1390 710 1070 730" fill="none" stroke="#6E7A4A" stroke-width="26" stroke-linecap="round"/>
+  <path d="M1112 245 C1305 300 1300 610 1115 655" fill="none" stroke="#C98A3D" stroke-width="16" stroke-linecap="round"/>
+  <g stroke="#5F7F68" stroke-width="7" opacity=".65"><line x1="980" y1="285" x2="1190" y2="195"/><line x1="1190" y1="195" x2="1395" y2="315"/><line x1="1395" y1="315" x2="1325" y2="570"/><line x1="1325" y1="570" x2="1125" y2="710"/><line x1="1125" y1="710" x2="945" y2="555"/><line x1="945" y1="555" x2="980" y2="285"/><line x1="980" y1="285" x2="1190" y2="470"/><line x1="1395" y1="315" x2="1190" y2="470"/><line x1="1125" y1="710" x2="1190" y2="470"/></g>
+  <g stroke="#fff" stroke-width="5"><circle cx="980" cy="285" r="42" fill="#5F7F68"/><circle cx="1190" cy="195" r="42" fill="#C98A3D"/><circle cx="1395" cy="315" r="42" fill="#B86A2A"/><circle cx="1325" cy="570" r="42" fill="#6E7A4A"/><circle cx="1125" cy="710" r="42" fill="#C98A3D"/><circle cx="945" cy="555" r="42" fill="#5F7F68"/><circle cx="1190" cy="470" r="42" fill="#B86A2A"/></g>
+</svg>
