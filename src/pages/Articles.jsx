@@ -23,9 +23,11 @@ export default function Articles() {
   });
 
   const CATEGORY_ORDER = { nutrition: 0, health: 1, ingredients: 2, breeds: 3, guides: 4 };
+  const HIDDEN_ARTICLE_CATEGORIES = new Set(["methodology"]);
 
   const filtered = useMemo(() => {
-    const list = category === "all" ? articles : articles.filter((a) => a.category === category);
+    const visibleArticles = articles.filter((a) => !HIDDEN_ARTICLE_CATEGORIES.has(a.category));
+    const list = category === "all" ? visibleArticles : visibleArticles.filter((a) => a.category === category);
     if (category !== "all") return list;
     return [...list].sort((a, b) => {
       const orderA = CATEGORY_ORDER[a.category] ?? 99;
