@@ -6,6 +6,7 @@ import { Clock, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
+
 function optimizedImage(url, width = 520, height = 347) {
   if (!url) return url;
   if (/\.svg(?:\?|#|$)/i.test(url) || url.startsWith("data:")) return url;
@@ -13,25 +14,59 @@ function optimizedImage(url, width = 520, height = 347) {
   const encoded = encodeURIComponent(source);
   return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
 }
+
+const CATEGORY_ORDER = { nutrition: 0, health: 1, ingredients: 2, breeds: 3, guides: 4 };
+const HIDDEN_ARTICLE_CATEGORIES = new Set(["methodology"]);
+const CATEGORY_ALIASES = {
+  transparency: "ingredients",
+  ingredient_transparency: "ingredients",
+  "ingredient-transparency": "ingredients",
+  marketing_claims: "ingredients",
+  "marketing-claims": "ingredients",
+};
+
+function normalizeArticleCategory(category) {
+  if (!category) return category;
+  return CATEGORY_ALIASES[category] || category;
+}
+
+function articleCategoryLabel(category) {
+  const normalized = normalizeArticleCategory(category);
+  const labels = {
+    nutrition: "Nutrition",
+    health: "Health",
+    ingredients: "Ingredients",
+    breeds: "Breeds",
+    guides: "Guides",
+  };
+  return labels[normalized] || normalized;
+}
+
 export default function Articles() {
   const params = new URLSearchParams(window.location.search);
-  const [category, setCategory] = useState(params.get("category") || "all");
+  const initialCategory = normalizeArticleCategory(params.get("category") || "all");
+  const [category, setCategory] = useState(initialCategory);
 
   const { data: articles = [], isLoading } = useQuery({
     queryKey: ["articles"],
     queryFn: () => base44.entities.Article.filter({ published: true }, "-created_date", 500),
   });
 
-  const CATEGORY_ORDER = { nutrition: 0, health: 1, ingredients: 2, breeds: 3, guides: 4 };
-  const HIDDEN_ARTICLE_CATEGORIES = new Set(["methodology"]);
-
   const filtered = useMemo(() => {
-    const visibleArticles = articles.filter((a) => !HIDDEN_ARTICLE_CATEGORIES.has(a.category));
-    const list = category === "all" ? visibleArticles : visibleArticles.filter((a) => a.category === category);
+    const visibleArticles = articles.filter((article) => {
+      const normalized = normalizeArticleCategory(article.category);
+      return !HIDDEN_ARTICLE_CATEGORIES.has(normalized);
+    });
+
+    const list = category === "all"
+      ? visibleArticles
+      : visibleArticles.filter((article) => normalizeArticleCategory(article.category) === category);
+
     if (category !== "all") return list;
+
     return [...list].sort((a, b) => {
-      const orderA = CATEGORY_ORDER[a.category] ?? 99;
-      const orderB = CATEGORY_ORDER[b.category] ?? 99;
+      const orderA = CATEGORY_ORDER[normalizeArticleCategory(a.category)] ?? 99;
+      const orderB = CATEGORY_ORDER[normalizeArticleCategory(b.category)] ?? 99;
       if (orderA !== orderB) return orderA - orderB;
       return new Date(b.created_date) - new Date(a.created_date);
     });
@@ -68,7 +103,7 @@ export default function Articles() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((article, idx) => (
+          {filtered.map((article) => (
             <motion.div
               key={article.id}
               initial={{ opacity: 0, y: 20 }}
@@ -81,18 +116,20 @@ export default function Articles() {
                   {article.image_url && (
                     <div className="aspect-[3/2] overflow-hidden">
                       <img
-  src={optimizedImage(article.image_url)}
-  alt={article.title}
-  loading="lazy"
-  decoding="async"
-  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-/>
+                        src={optimizedImage(article.image_url)}
+                        alt={article.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
                   )}
                   <div className="p-5 flex-1 flex flex-col">
                     <div className="flex items-center gap-2 mb-3">
                       {article.category && (
-                        <Badge variant="secondary" className="text-xs capitalize">{article.category}</Badge>
+                        <Badge variant="secondary" className="text-xs capitalize">
+                          {articleCategoryLabel(article.category)}
+                        </Badge>
                       )}
                       {article.read_time && (
                         <span className="flex items-center gap-1 text-xs text-muted-foreground">
