@@ -13,7 +13,31 @@ function optimizedImage(url, width = 520, height = 347) {
   return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
 }
 
-const HIDDEN_ARTICLE_CATEGORIES = new Set(["methodology", "transparency"]);
+const HIDDEN_ARTICLE_CATEGORIES = new Set(["methodology"]);
+const CATEGORY_ALIASES = {
+  transparency: "ingredients",
+  ingredient_transparency: "ingredients",
+  "ingredient-transparency": "ingredients",
+  marketing_claims: "ingredients",
+  "marketing-claims": "ingredients",
+};
+
+function normalizeArticleCategory(category) {
+  if (!category) return category;
+  return CATEGORY_ALIASES[category] || category;
+}
+
+function articleCategoryLabel(category) {
+  const normalized = normalizeArticleCategory(category);
+  const labels = {
+    nutrition: "Nutrition",
+    health: "Health",
+    ingredients: "Ingredients",
+    breeds: "Breeds",
+    guides: "Guides",
+  };
+  return labels[normalized] || normalized;
+}
 
 export default function KnowledgePreview() {
   const { data: articles = [] } = useQuery({
@@ -21,7 +45,7 @@ export default function KnowledgePreview() {
     queryFn: async () => {
       const items = await base44.entities.Article.filter({ published: true }, "-created_date", 12);
       return items
-        .filter((article) => !HIDDEN_ARTICLE_CATEGORIES.has(article.category))
+        .filter((article) => !HIDDEN_ARTICLE_CATEGORIES.has(normalizeArticleCategory(article.category)))
         .slice(0, 3);
     },
   });
@@ -66,7 +90,7 @@ export default function KnowledgePreview() {
                   <div className="flex items-center gap-2 mb-3">
                     {article.category && (
                       <Badge variant="secondary" className="text-xs capitalize">
-                        {article.category}
+                        {articleCategoryLabel(article.category)}
                       </Badge>
                     )}
                     {article.read_time && (
