@@ -7,6 +7,40 @@ import ReactMarkdown from "react-markdown";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 
+function optimizedImage(url, width = 960, height = 480) {
+  if (!url) return url;
+  if (/\.svg(?:\?|#|$)/i.test(url) || url.startsWith("data:")) return url;
+  const source = url.replace(/^https?:\/\/chooseyourpetfood\.com/, "");
+  const encoded = encodeURIComponent(source);
+  return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=76`;
+}
+
+const CATEGORY_ALIASES = {
+  transparency: "ingredients",
+  ingredient_transparency: "ingredients",
+  "ingredient-transparency": "ingredients",
+  marketing_claims: "ingredients",
+  "marketing-claims": "ingredients",
+};
+
+function normalizeArticleCategory(category) {
+  if (!category) return category;
+  return CATEGORY_ALIASES[category] || category;
+}
+
+function articleCategoryLabel(category) {
+  const normalized = normalizeArticleCategory(category);
+  const labels = {
+    nutrition: "Nutrition",
+    health: "Health",
+    ingredients: "Ingredients",
+    breeds: "Breeds",
+    guides: "Guides",
+    methodology: "Methodology",
+  };
+  return labels[normalized] || normalized;
+}
+
 export default function ArticleDetail() {
   const urlParts = window.location.pathname.split("/");
   const articleId = urlParts[urlParts.length - 1];
@@ -49,13 +83,19 @@ export default function ArticleDetail() {
       <motion.article initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         {article.image_url && (
           <div className="aspect-[2/1] rounded-lg overflow-hidden mb-8">
-            <img src={article.image_url} alt={article.title} className="w-full h-full object-cover" />
+            <img
+              src={optimizedImage(article.image_url)}
+              alt={article.title}
+              loading="eager"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
           </div>
         )}
 
         <div className="flex flex-wrap items-center gap-3 mb-4">
           {article.category && (
-            <Badge variant="secondary" className="capitalize">{article.category}</Badge>
+            <Badge variant="secondary" className="capitalize">{articleCategoryLabel(article.category)}</Badge>
           )}
           {article.read_time && (
             <span className="flex items-center gap-1 text-sm text-muted-foreground">
