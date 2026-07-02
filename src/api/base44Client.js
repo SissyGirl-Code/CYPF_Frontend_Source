@@ -1,5 +1,5 @@
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://mahkzriipvwolxvenuaf.supabase.co";
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1haGt6cmlpcHZ3b2x4dmVudWFmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5Njg5MDIsImV4cCI6MjA5NjU0NDkwMn0.GCMDUP8l6hjEAVGAWVipqmk9iFC_IB-cMrqk99B3rVA";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://ktylraqkniqgbzkgldrk.supabase.co";
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "sb_publishable_a6-r0xtvc1XeBwywLDck4g_evOxhiT4";
 const ADMIN_EMAIL = "melissabateman1981@gmail.com";
 const SESSION_KEY = "cypf_supabase_session";
 
