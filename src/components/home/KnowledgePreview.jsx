@@ -5,10 +5,25 @@ import { ArrowRight, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 
+function optimizedImage(url, width = 520, height = 347) {
+  if (!url) return url;
+  if (/\.svg(?:\?|#|$)/i.test(url) || url.startsWith("data:")) return url;
+  const source = url.replace(/^https?:\/\/chooseyourpetfood\.com/, "");
+  const encoded = encodeURIComponent(source);
+  return `/.netlify/images?url=${encoded}&w=${width}&h=${height}&fit=cover&fm=webp&q=72`;
+}
+
+const HIDDEN_ARTICLE_CATEGORIES = new Set(["methodology", "transparency"]);
+
 export default function KnowledgePreview() {
   const { data: articles = [] } = useQuery({
     queryKey: ["recent-articles"],
-    queryFn: () => base44.entities.Article.filter({ published: true }, "-created_date", 3),
+    queryFn: async () => {
+      const items = await base44.entities.Article.filter({ published: true }, "-created_date", 12);
+      return items
+        .filter((article) => !HIDDEN_ARTICLE_CATEGORIES.has(article.category))
+        .slice(0, 3);
+    },
   });
 
   if (articles.length === 0) return null;
@@ -39,8 +54,10 @@ export default function KnowledgePreview() {
                 {article.image_url && (
                   <div className="aspect-[3/2] overflow-hidden">
                     <img
-                      src={article.image_url}
+                      src={optimizedImage(article.image_url)}
                       alt={article.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
